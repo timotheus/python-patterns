@@ -2,34 +2,34 @@ from heapq import heapify, heappop, heapreplace
 from copy import copy
 
 def merge_pqueue(lists, max_size=10):
-	result = []
-	pqueue = []
+    result = []
+    pqueue = []
 
-	for i in range(len(lists)):
-		try:
-			pqueue.append(lists[i].pop(0))
-		except Exception:
-			pass
+    for i in range(len(lists)):
+        try:
+            pqueue.append(lists[i].pop(0))
+        except Exception:
+            pass
 
-	heapify(pqueue)
-	val = pqueue.pop(0)
-	result.append(val)
+    heapify(pqueue)
+    val = pqueue.pop(0)
+    result.append(val)
 
-	while pqueue and len(result) < max_size-1:
-		for i in range(len(lists)):
-			try:
-				pqueue.append(lists[i].pop(0))
-			except Exception:
-				pass
-		
-		heapify(pqueue)
+    while pqueue and len(result) < max_size-1:
+        for i in range(len(lists)):
+            try:
+                pqueue.append(lists[i].pop(0))
+            except Exception:
+                pass
+        
+        heapify(pqueue)
 
-		val = pqueue.pop(0)
-		result.append(val)
+        val = pqueue.pop(0)
+        result.append(val)
 
         result.append(heappop(pqueue))
 
-	return result
+    return result
 
 def xmerge(*ln):
     pqueue = []
