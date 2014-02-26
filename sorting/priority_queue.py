@@ -12,10 +12,10 @@ def merge_pqueue(lists, max_size=10):
             pass
 
     heapify(pqueue)
-    val = pqueue.pop(0)
+    val = heappop(pqueue)
     result.append(val)
 
-    while pqueue and len(result) < max_size-1:
+    while pqueue and len(result) < max_size:
         for i in range(len(lists)):
             try:
                 pqueue.append(lists[i].pop(0))
@@ -24,10 +24,8 @@ def merge_pqueue(lists, max_size=10):
         
         heapify(pqueue)
 
-        val = pqueue.pop(0)
+        val = heappop(pqueue)
         result.append(val)
-
-        result.append(heappop(pqueue))
 
     return result
 
@@ -61,43 +59,44 @@ def merge_basic(mylists, max_size=10):
     return newlist[:max_size]
 
 def run_basic():
-    a1 = [1, 6, 20, 40, 42]
-    a2 = [11, 23, 25, 26, 26]
-    a4 = [4, 8, 8, 12]
-    a3 = [5, 12, 16]
+    a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
+    a2 = [11, 23, 25, 26, 26, 44, 66, 69, 99]
+    a4 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
+    a3 = [5, 12, 16, 40, 50, 100, 103, 200]
 
     set1 = [copy(a1), copy(a2), copy(a3), copy(a4)]
-    retval = merge_basic(set1, max_size=10)
+    retval = merge_basic(set1, max_size=8)
 
 def run_pqueue():
-    a1 = [1, 6, 20, 40, 42]
-    a2 = [11, 23, 25, 26, 26]
-    a4 = [4, 8, 8, 12]
-    a3 = [5, 12, 16]
+    a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
+    a2 = [11, 23, 25, 26, 26, 44, 66, 69, 99]
+    a4 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
+    a3 = [5, 12, 16, 40, 50, 100, 103, 200]
 
     set1 = [copy(a1), copy(a2), copy(a3), copy(a4)]
-    retval = merge_pqueue(set1, max_size=10)
+    retval = merge_pqueue(set1, max_size=8)
     
 if __name__ == '__main__':
 
     import timeit    
+    
     print("run_pqueue() %s" % \
         timeit.timeit("run_pqueue()", number=50000,
                       setup="from __main__ import run_pqueue"))
 
-    print("run_pqueue() %s" % \
+    print("run_basic() %s" % \
         timeit.timeit("run_basic()", number=50000,
                       setup="from __main__ import run_basic"))
-
-
-    a1 = [1, 6, 20, 40, 42]
-    a2 = [11, 23, 25, 26, 26]
-    a4 = [4, 8, 8, 12]
-    a3 = [5, 12, 16]
+    
+    a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
+    a2 = [11, 23, 25, 26, 26, 44, 66, 69, 99]
+    a4 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
+    a3 = [5, 12, 16, 40, 50, 100, 103, 200]
 
     set1 = [copy(a1), copy(a2), copy(a3), copy(a4)]
     set2 = [copy(a1), copy(a2), copy(a3), copy(a4)]
     
-    print(merge_basic(set1, max_size=10))
-    print(merge_pqueue(set1, max_size=10))
+    print(merge_pqueue(set1, max_size=8))
+    print(merge_basic(set2, max_size=8))
+
 
