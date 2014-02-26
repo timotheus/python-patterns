@@ -61,31 +61,33 @@ def merge_basic(mylists, max_size=10):
 def run_basic():
     a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
     a2 = [11, 23, 25, 26, 26, 44, 66, 69, 99]
-    a4 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
-    a3 = [5, 12, 16, 40, 50, 100, 103, 200]
+    a3 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
+    a4 = [5, 12, 16, 40, 50, 100, 103, 200]
+    a5 = [x*2 for x in range(1000)]
+    a6 = [x*3 for x in range(1000)]
 
-    set1 = [copy(a1), copy(a2), copy(a3), copy(a4)]
-    retval = merge_basic(set1, max_size=8)
+    retval = merge_basic([a1, a2, a3, a4, a5, a6], max_size=8)
 
 def run_pqueue():
     a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
     a2 = [11, 23, 25, 26, 26, 44, 66, 69, 99]
-    a4 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
-    a3 = [5, 12, 16, 40, 50, 100, 103, 200]
+    a3 = [4, 8, 8, 12, 21, 32, 44, 66, 69]
+    a4 = [5, 12, 16, 40, 50, 100, 103, 200]
+    a5 = [x*2 for x in range(1000)]
+    a6 = [x*3 for x in range(1000)]
 
-    set1 = [copy(a1), copy(a2), copy(a3), copy(a4)]
-    retval = merge_pqueue(set1, max_size=8)
+    retval = merge_pqueue([a1, a2, a3, a4, a5, a6], max_size=8)
     
 if __name__ == '__main__':
 
     import timeit    
     
     print("run_pqueue() %s" % \
-        timeit.timeit("run_pqueue()", number=50000,
+        timeit.timeit("run_pqueue()", number=10000,
                       setup="from __main__ import run_pqueue"))
 
     print("run_basic() %s" % \
-        timeit.timeit("run_basic()", number=50000,
+        timeit.timeit("run_basic()", number=10000,
                       setup="from __main__ import run_basic"))
     
     a1 = [1, 6, 20, 40, 42, 45, 56, 77, 70, 88]
