@@ -2,6 +2,13 @@
 import random
 import itertools
 
+def valid(a, b):
+
+    for i, j in itertools.izip(a, b):
+        if i[0] == j[0]:
+            return False
+    return True
+
 givers = [('tim', 'shirt'), ('jim', 'shoe'), ('john', 'ball'), ('joe', 'fruit')]
 
 if len(givers) < 2:
@@ -10,7 +17,7 @@ else:
     a = list(givers)
     b = list(givers)
 
-    while a == b:
+    while not valid(a, b):
         random.shuffle(a)
         random.shuffle(b)
 
