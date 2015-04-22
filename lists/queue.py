@@ -11,10 +11,11 @@ class Stack(object):
         return self._stack.pop()
 
     def isEmpty(self):
-        if len(self._stack) ==0:
+        if len(self._stack) == 0:
             return True
         else:
             return False
+
 
 class Queue(object):
 
@@ -49,4 +50,15 @@ if __name__ == '__main__':
     assert('b' == q.denqueue())
     assert('c' == q.denqueue())
 
-    
+    from collections import deque
+
+    cq = deque()
+    cq.append('a')
+    cq.append('b')
+    cq.append('c')
+
+    assert('a' == cq.popleft())
+    assert('b' == cq.popleft())
+    assert('c' == cq.popleft())
+
+

@@ -16,7 +16,7 @@ class Animal(object):
         self.location='mountains'
         self.has_owner=False
 
-    def __getattribute__(self, name):
+    def __DISABLEgetattribute__(self, name):
         if name == 'has_owner':
             rt = object.__getattribute__(self, name)
             if rt:
@@ -46,8 +46,15 @@ class Dog(Animal):
         super(self.__class__, self).__init__()
 
         self.has_owner=True
+        self.mydict = {'a': 1234}
+    
+    def __getitem__(self, key):
+        if self.mydict.has_key(key):
+            return {'value': self.mydict[key]}
+        else:
+            raise KeyError(key)
 
-    def __getattribute__(self, name):
+    def __DISABLEgetattribute__(self, name):
         if name == 'has_owner':
             rt = object.__getattribute__(self, name)
             if rt:
@@ -63,7 +70,7 @@ class Dog(Animal):
 
 if __name__ == '__main__':
     
-    '''
+    
     std = Animal()
     print std.noise()
 
@@ -71,7 +78,6 @@ if __name__ == '__main__':
     print riley.noise()
     print riley.has_owner
     print riley.location
-    '''
 
     import doctest
     import sys
