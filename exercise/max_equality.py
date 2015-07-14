@@ -36,6 +36,16 @@ def process(x, avg_car_load):
 
 
 def answer(x):
+    #avg_car_load = sum(x) / float(len(x))
+    mysum = sum(x)
+    size = len(x)
+    while size > 0:
+        if mysum % size == 0:
+            return size
+        size -= 1
+
+    return size
+
     avg_car_load = sum(x) / len(x)
 
     while True:
@@ -58,3 +68,4 @@ if __name__ == '__main__':
     assertEqual(answer([0, 0, 0]), 3, '')
     assertEqual(answer([1, 0, 20]), 3, '')
     assertEqual(answer([3, 3, 1000000]), 2, '')
+    assertEqual(answer([3, 3, 1000000, 22]), 2, '')
