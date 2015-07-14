@@ -26,11 +26,11 @@ def moveBack(x, car):
 def process(x, avg_car_load):
     new_x = list(x)
 
-    for i, val in enumerate(x):
+    for car, val in enumerate(x):
         if val < avg_car_load:
-            moveUp(new_x, i)
+            moveUp(new_x, car)
         elif val > avg_car_load:
-            moveBack(new_x, i)
+            moveBack(new_x, car)
 
     return new_x
 
@@ -55,6 +55,6 @@ if __name__ == '__main__':
     assertEqual(answer([1, 4, 1]), 3, 'size 3 event total')
     assertEqual(answer([1, 2]), 1, 'size 2 odd total')
     assertEqual(answer([1, 0]), 1, '')
-    assertEqual(answer([0, 0, 0]), 1, '')
-    assertEqual(answer([1, 0, 20]), 1, '')
-    assertEqual(answer([3, 3, 1000000]), 1, '')
+    assertEqual(answer([0, 0, 0]), 3, '')
+    assertEqual(answer([1, 0, 20]), 3, '')
+    assertEqual(answer([3, 3, 1000000]), 2, '')
