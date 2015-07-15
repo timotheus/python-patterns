@@ -27,7 +27,7 @@ def assertEqual(a, b, label=""):
 
     try:
         assert(a == b)
-        print "%s == %s: Success %s" % (a, b, label)
+        print("%s == %s: Success %s" % (a, b, label))
     except:
         print("%s != %s: Fail %s" % (a, b, label))
 
