@@ -33,11 +33,8 @@ def assertEqual(a, b, label=""):
 
 
 def answer(x):
-    total = 0
+    total = sum(x)
     length = len(x)
-
-    for c in x:
-        total = total + c
 
     if (total < length):
         return total
