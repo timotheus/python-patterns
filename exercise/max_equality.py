@@ -35,7 +35,7 @@ def process(x, avg_car_load):
     return new_x
 
 
-def answer(x):
+def lanswer(x):
     #avg_car_load = sum(x) / float(len(x))
     mysum = sum(x)
     size = len(x)
@@ -46,6 +46,7 @@ def answer(x):
 
     return size
 
+def danswer(x):
     avg_car_load = sum(x) / len(x)
 
     while True:
@@ -60,12 +61,38 @@ def answer(x):
         x = list(new_x)
 
 
+def answer(x):
+    total = sum(x)
+    length = len(x)
+    max_eq = 0
+
+    if (total >= length):
+        modulus = total % length
+
+        if modulus == 0:
+            return length
+        else:
+            max_eq = modulus
+
+            for x in xrange(length - 1, 1, -1):
+                modulus = total % x
+
+                if ((modulus == 0) and (x > max_eq)):
+                    max_eq = x
+                elif (modulus > max_eq):
+                    max_eq = modulus
+
+            return max_eq
+
+
+    return total
 
 if __name__ == '__main__':
-    assertEqual(answer([1, 4, 1]), 3, 'size 3 event total')
-    assertEqual(answer([1, 2]), 1, 'size 2 odd total')
-    assertEqual(answer([1, 0]), 1, '')
-    assertEqual(answer([0, 0, 0]), 3, '')
-    assertEqual(answer([1, 0, 20]), 3, '')
-    assertEqual(answer([3, 3, 1000000]), 2, '')
-    assertEqual(answer([3, 3, 1000000, 22]), 2, '')
+    #assertEqual(answer([1, 4, 1]), 3, 'size 3 event total')
+    #assertEqual(answer([1, 2]), 1, 'size 2 odd total')
+    #assertEqual(answer([1, 0]), 1, '')
+    #assertEqual(answer([0, 0, 0]), 3, '')
+    #assertEqual(answer([1, 0, 20]), 3, '')
+    #assertEqual(answer([3, 3, 1000000]), 2, '')
+    #assertEqual(answer([3, 3, 1000000, 22]), 2, '')
+    assertEqual(answer([2, 2, 1, 1, 1, 1, 1, 1]), 5, '')
