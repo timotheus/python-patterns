@@ -22,7 +22,10 @@ def answer(meetings):
 
 			prev_start = start
 			prev_end = end
+		else:
+			break
 
+		
 	return meeting_count
 
 if __name__ == '__main__':
