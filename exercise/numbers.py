@@ -5,7 +5,8 @@ from .common import assertEquals
 
 
 '''
-WAP to find if a string exists in a matrix of characters. Going right to left and top to bottom does this string exist in this matrix of characters.
+WAP to find if a string exists in a matrix of characters. You can only go left to right and top to bottom 
+to see if this string exists in this matrix of characters.
 
 "GIRL"
 
