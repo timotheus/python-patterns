@@ -8,7 +8,7 @@ from .common import assertEquals
 WAP to find if a string exists in a matrix of characters. You can only go left to right and top to bottom 
 to see if this string exists in this matrix of characters.
 
-"GIRL"
+"ARK"
 
 G A U E
 
@@ -41,7 +41,7 @@ def wordmatch(word):
 
     return False
 
-assertEquals(wordmatch('GIRL'), True, 'matched word')
+assertEquals(wordmatch('ARK'), True, 'matched word')
 assertEquals(wordmatch('RIRL'), False, 'did not matched word')
 
 '''
