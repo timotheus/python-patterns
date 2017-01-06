@@ -29,5 +29,6 @@ def answer(meetings):
 	return meeting_count
 
 if __name__ == '__main__':
+
     assertEqual(answer([[0, 1], [1, 2], [2, 3], [3, 5], [4, 5]]), 4, 'four meetings')
     assertEqual(answer([[0, 1000000], [42, 43], [0, 1000000], [42, 43]]), 1, 'one meeting')
