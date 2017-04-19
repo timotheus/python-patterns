@@ -1,7 +1,7 @@
 import math
 import time
 import sys
-from .common import assertEquals
+from common import assertEquals
 
 
 '''
@@ -78,10 +78,18 @@ def agram_list(A, B=''):
 
         return res
 
-print agram_list('tim')
+print(agram_list('tim'))
 
 '''
 Factorial
+
+1 2 3 4 5
+1*1 = 1
+1*2 = 2
+2*3 = 6
+6*4 = 24
+24*5 = 120
+
 '''
 def factorial(num):
     total = 1
@@ -90,6 +98,7 @@ def factorial(num):
 
     return total
 
+assertEquals(factorial(5), math.factorial(5), 'factorial 5')
 assertEquals(factorial(10), math.factorial(10), 'factorial 10')
 assertEquals(factorial(20), math.factorial(20), 'factorial 20')
 assertEquals(factorial(99), math.factorial(99), 'factorial 99')
@@ -116,7 +125,7 @@ def fib_seq():
     b = 1
     yield a
     yield a
-    for i in xrange(0, sys.maxint):
+    for i in range(0, sys.maxsize):
         total = a + b
         a = b
         b = total
@@ -126,7 +135,8 @@ def fib_seq():
 for i in fib_seq():
     if i > 40000:
         break
-    print i,
+    
+    print(i)
 
 '''
 Generate Prime numbers between the start and end number
@@ -141,12 +151,16 @@ def is_prime(num):
 
     return True
 
-primes = []
-for i in range(1, 100):
-    if is_prime(i):
-        primes.append(i)
+def primes():
+    primes = []
+    for i in range(1, 100):
+        if is_prime(i):
+            primes.append(i)
 
-print(primes)
+    return primes
+
+
+
 
 '''
 Given an array of integers, find the missing element in it. 
@@ -169,9 +183,23 @@ Given an array of integers, find the sub array with maximum sum.
 
 max_sum = []
 total = 0
-for a in primes:
+for a in primes():
     total += a
     max_sum.append(total)
 
-print(primes)
+print(primes())
 print(max_sum)
+
+
+def dedup(a):
+    b = []
+    for i in a:
+        if i in b:
+            pass
+        else:
+            b.append(i)
+
+    return b
+
+dedup_rv = dedup([0, 1, 2, 2, 3, 4])
+assertEquals(dedup_rv, [0, 1, 2, 3, 4], 'dedup array')

@@ -8,6 +8,7 @@ import time
 '''
 Implement Unix Tail command
 '''
+
 def tail_file(myfile):
 
     while True:

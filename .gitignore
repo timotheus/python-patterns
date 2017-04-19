@@ -1,1 +1,16 @@
+.pyc
+build/
+dist/
+\.virtualenvs/
+python_patterns.egg-info/
+*.swp
 *.pyc
+.svn
+.idea
+.cache/
+\.DS_Store
+\.eggs
+\.tox
+venv/
+venv*
+

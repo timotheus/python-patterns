@@ -1,3 +1,5 @@
+from common import assertEquals
+
 """
 Maximum equality
 ================
@@ -20,14 +22,6 @@ Write a function answer(x), which takes the array of integers x and returns the 
 
 The number of cars in the train (elements in x) will be at least 2, and no more than 100. The number of rabbits that want to share a car (each element of x) will be an integer in the range [0, 1000000].
 """
-def assertEqual(a, b, label=""):
-
-    try:
-        assert(a == b)
-        print("%s == %s: Success %s" % (a, b, label))
-    except:
-        print("%s != %s: Fail %s" % (a, b, label))
-
 
 def answer(x):
     total = sum(x)
@@ -41,11 +35,11 @@ def answer(x):
         return length - 1
 
 if __name__ == '__main__':
-    assertEqual(answer([1, 4, 1]), 3)
-    assertEqual(answer([1, 2]), 1)
-    assertEqual(answer([1, 0]), 1)
-    assertEqual(answer([0, 0, 0]), 0)
-    assertEqual(answer([1, 0, 20]), 3)
-    assertEqual(answer([3, 3, 1000000]), 2)
-    assertEqual(answer([3, 3, 1000000, 22]), 4)
-    assertEqual(answer([2, 2, 2, 1, 1, 1]),  5)
+    assertEquals(answer([1, 4, 1]), 3)
+    assertEquals(answer([1, 2]), 1)
+    assertEquals(answer([1, 0]), 1)
+    assertEquals(answer([0, 0, 0]), 0)
+    assertEquals(answer([1, 0, 20]), 3)
+    assertEquals(answer([3, 3, 1000000]), 2)
+    assertEquals(answer([3, 3, 1000000, 22]), 4)
+    assertEquals(answer([2, 2, 2, 1, 1, 1]),  5)

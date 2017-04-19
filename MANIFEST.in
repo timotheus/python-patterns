@@ -1,0 +1,6 @@
+recursive-include ndal *
+global-exclude ndal *.pyc
+recursive-include bin *
+include README.md
+include tox.ini
+include requirements.txt
