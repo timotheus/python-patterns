@@ -47,6 +47,7 @@ class Test(unittest.TestCase):
             ('joe', 'fruit')
         ]
         
+    # These tests are expected to fail to show the giting output.     
     def testParty(self):
         self.assertTrue(type(run(self.guests))=='asdf', 'type check')
         self.assertEqual(type(run(self.guests, as_text=True)),
